@@ -39,8 +39,8 @@
 
 .header-right .ant-badge .ant-badge-count {
   position: absolute;
-  top: 6px;
-  right: 16px;
+  top: 2px;
+  right: 2px;
   z-index: 10;
   min-width: 20px;
   height: 20px;
@@ -113,8 +113,8 @@
   }
   
   .header-right .ant-badge .ant-badge-count {
-    top: 6px;
-    right: -4px;
+    top: 4px;
+    right: 4px;
     min-width: 18px;
     height: 18px;
     line-height: 18px;
