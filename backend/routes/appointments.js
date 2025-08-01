@@ -109,13 +109,25 @@ router.delete('/:doctorId', auth, async (req, res) => {
           { $inc: { queuePosition: -1 } }
         );
 
+        // 发送候补转正通知，确保userId是字符串
         req.io.emit('appointmentUpdate', {
-          userId: waitingAppointment.user,
+          userId: waitingAppointment.user.toString(),
           message: '您的候补挂号已转为正式挂号'
         });
       }
+    } else if (appointment.status === 'waiting') {
+      // 如果取消的是候补，需要更新其他候补位置
+      await Appointment.updateMany(
+        {
+          doctor: req.params.doctorId,
+          status: 'waiting',
+          queuePosition: { $gt: appointment.queuePosition }
+        },
+        { $inc: { queuePosition: -1 } }
+      );
     }
 
+    // 广播医生信息更新给所有用户
     req.io.emit('doctorUpdate', { doctorId: req.params.doctorId });
     res.json({ message: '取消成功' });
 

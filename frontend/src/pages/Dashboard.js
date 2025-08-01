@@ -37,9 +37,14 @@ function Dashboard() {
     });
 
     newSocket.on('appointmentUpdate', ({ userId, message: msg }) => {
-      if (userId === user._id) {
+      // 确保用户ID匹配（处理字符串比较）
+      if (userId === user._id || userId === user.id) {
         message.success(msg);
+        // 实时更新挂号记录和医生列表
         fetchMyAppointments();
+        if (selectedDepartment) {
+          fetchDoctors(selectedDepartment);
+        }
       }
     });
 
