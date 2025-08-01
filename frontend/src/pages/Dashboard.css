@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  color: #1890ff;
+}
+
+.system-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.header-right .user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.username {
+  margin-left: 8px;
+}
+
+.doctor-card {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.doctor-avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.status-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.booking-status {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.booking-status.full {
+  color: #ff4d4f;
+}
+
+.full-text {
+  color: #ff4d4f;
+}
+
+.doctor-modal-content .doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.doctor-details h3 {
+  margin: 0 0 10px 0;
+}
+
+.doctor-details p {
+  margin: 5px 0;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 12px;
+  }
+  
+  .system-title {
+    font-size: 16px;
+  }
+  
+  .username {
+    display: none;
+  }
+  
+  .doctor-modal-content .doctor-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .doctor-details {
+    width: 100%;
+  }
+  
+  .ant-layout-sider {
+    position: fixed !important;
+    height: 100vh;
+    z-index: 999;
+  }
+  
+  .ant-drawer {
+    z-index: 1001;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0 8px;
+  }
+  
+  .system-title {
+    font-size: 14px;
+  }
+  
+  .doctor-card .ant-card-body {
+    padding: 12px;
+  }
+  
+  .doctor-avatar-container {
+    padding: 15px;
+  }
+  
+  .ant-layout-content {
+    padding: 16px !important;
+  }
+  
+  .ant-row {
+    margin: 0 -8px !important;
+  }
+  
+  .ant-col {
+    padding: 0 8px !important;
+  }
+}
