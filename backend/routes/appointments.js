@@ -66,7 +66,7 @@ router.post('/', auth, async (req, res) => {
       res.json({ message: '挂号成功', status: 'active' });
     }
 
-    // 广播更新
+    // 广播更新给所有用户
     req.io.emit('doctorUpdate', { doctorId });
 
   } catch (error) {

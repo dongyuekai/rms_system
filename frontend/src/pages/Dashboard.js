@@ -30,6 +30,7 @@ function Dashboard() {
     setSocket(newSocket);
 
     newSocket.on('doctorUpdate', ({ doctorId }) => {
+      // 实时更新医生列表
       if (selectedDepartment) {
         fetchDoctors(selectedDepartment);
       }
@@ -43,7 +44,7 @@ function Dashboard() {
     });
 
     return () => newSocket.close();
-  }, [user]); // 移除selectedDepartment依赖，避免重复初始化
+  }, [user, selectedDepartment]); // 重新添加selectedDepartment依赖
 
   const fetchDepartments = async () => {
     try {
