@@ -5,6 +5,8 @@
   background: #fff;
   padding: 0 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
 }
 
 .header-left {
@@ -19,10 +21,31 @@
   margin-left: 8px;
 }
 
+.header-right {
+  position: relative;
+}
+
 .header-right .user-info {
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+
+.header-right .ant-badge {
+  position: relative;
+  z-index: 1;
+}
+
+.header-right .ant-badge .ant-badge-count {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+  z-index: 10;
+  min-width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
 }
 
 .username {
@@ -89,6 +112,15 @@
     display: none;
   }
   
+  .header-right .ant-badge .ant-badge-count {
+    top: 6px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+  }
+  
   .doctor-modal-content .doctor-info {
     flex-direction: column;
     text-align: center;
@@ -117,6 +149,15 @@
   
   .system-title {
     font-size: 14px;
+  }
+  
+  .header-right .ant-badge .ant-badge-count {
+    top: 6px;
+    right: 6px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 10px;
   }
   
   .doctor-card .ant-card-body {
